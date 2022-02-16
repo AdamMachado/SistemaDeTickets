@@ -1,0 +1,60 @@
+﻿@model Tickets_bot.Models.TicketsViewModel
+
+@{
+    ViewData["Title"] = "Atualizar Pessoa" +Model.NmePessoa;
+
+}
+
+<div class="alert alert-secondary">
+    Nome da Pessoa @Model.NmePessoa
+</div>
+    <a asp-action="NovoTicket" asp-route-idfPessoaFisica="@Model.IdfPessoaFisica" class="btn btn-success btn-sm" >Novo Ticket</a>
+</p>
+<table class="table table-hover table-sm">
+    <thead>
+        <tr>
+            <th>
+                NmePessoa
+            </th>
+            <th>
+               DtaCadastro
+            </th>
+            <th>
+               IdfTicketSituacao
+            </th>
+            <th>
+                FlgInativo
+            </th>
+         
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ListaBugs) {
+        <tr>
+            <td>
+               @item.NmeTicketResponsavel
+            </td>
+            <td>
+                @item.DtaCadastro
+            </td>
+            <td>
+               @item.FlgInativo
+            </td>
+            <td>
+               @item.IdfTicketSituacao
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NmeTicketResponsavel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlgInativo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-idfTicket="@item.IdfTicket" class="btn btn-sm btn-primary">Atualizar</a> |
+                <a asp-action="ExcluirTickte" asp-route-idfTicket="@item.IdfTicket"class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

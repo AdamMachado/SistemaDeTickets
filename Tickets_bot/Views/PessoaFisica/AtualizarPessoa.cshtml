@@ -1,0 +1,57 @@
+﻿@model Tickets_bot.Models.PessoaFisica
+
+@{
+    ViewData["Title"] = "Atualizar Pessoa" +Model.NmePessoa;
+}
+
+
+
+<h6 class="alert alert-primary" >Atualizar Pessoa @Model.NmePessoa</h6>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AtualizarPessoa">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdfPessoaFisica" />
+            <div class="form-group">
+                <label asp-for="NumCpf" class="control-label col-form-label-sm"></label>
+                <input asp-for="NumCpf" class="form-control" />
+                <span asp-validation-for="NumCpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NmePessoa" class="control-label col-form-label-sm"></label>
+                <input asp-for="NmePessoa" class="form-control form-control-sm" />
+                <span asp-validation-for="NmePessoa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtaNascimento" class="control-label col-form-label-sm"></label>
+                <input asp-for="DtaNascimento" class="form-control form-control-sm" />
+                <span asp-validation-for="DtaNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmlPessoa" class="control-label col-form-label-sm"></label>
+                <input asp-for="EmlPessoa" class="form-control form-control-sm" />
+                <span asp-validation-for="EmlPessoa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtaCadastro" class="control-label col-form-label-sm"></label>
+                <input asp-for="DtaCadastro" class="form-control form-control-sm" />
+                <span asp-validation-for="DtaCadastro" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FlgInativo" /> @Html.DisplayNameFor(model => model.FlgInativo)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmlAccount" class="control-label col-form-label-sm"></label>
+                <input asp-for="EmlAccount" class="form-control form-control-sm" />
+                <span asp-validation-for="EmlAccount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Atualizar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-link btn-sm" >Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

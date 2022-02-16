@@ -1,0 +1,60 @@
+﻿@model Tickets_bot.Models.PessoaFisica
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<div>
+    <h4>PessoaFisica</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumCpf)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumCpf)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NmePessoa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NmePessoa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DtaNascimento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DtaNascimento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmlPessoa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmlPessoa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DtaCadastro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DtaCadastro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FlgInativo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FlgInativo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmlAccount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmlAccount)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdfPessoaFisica">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

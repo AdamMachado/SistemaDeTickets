@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Tickets_bot.Models.PessoaFisica>
+
+@{
+    ViewData["Title"] = "Pessoas Cadastradas";
+}
+
+
+
+<p>
+    <a asp-action="NovaPessoa" class="btn btn-success btn-sm">Nova Pessoa </a>
+</p>
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumCpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NmePessoa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtaNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmlPessoa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtaCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlgInativo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmlAccount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumCpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NmePessoa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtaNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmlPessoa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtaCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlgInativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmlAccount)
+            </td>
+            <td>
+                <a asp-action="AtualizarPessoa" asp-route-idfPessoaFisica="@item.IdfPessoaFisica" class="btn btn-sm btn-primary">Atualizar</a> |
+                <a asp-controller="Tickets" asp-action="ListagemTickets" asp-route-idfPessoaFisica="@item.IdfPessoaFisica" class="btn btn-sm btn-secondary">Ticket</a> |
+                <form asp-action="ExcluirPessoa" asp-route-idfPessoaFisica="@item.IdfPessoaFisica" onclick="confirm('Prosseguir com a exclusão da pessoa @item.NmePessoa ?')"> 
+                    <button type="submit" class="btn btn-sm btn-danger">Excluir</button></form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
